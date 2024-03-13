@@ -31,13 +31,14 @@ router.post("/login", async (req, res) => {
 
 ///Version con Passport: 
 
-router.post("/login", passport.authenticate("login", {failureRedirect: "/api/sessions/faillogin"}), async (req, res) => {
-    if(!req.usuario) return res.status(400).send({status:"error"});
+router.post("/login", passport.authenticate("login", {failureRedirect: "/api/session/faillogin"}), async (req, res) => {
+    if(!req.user) return res.status(400).send({status:"error"});
 
-    req.session.usuario = {
-        first_name: req.usuario.first_name,
-        age: req.usuario.age,
-        email:req.usuario.email
+    req.session.user = {
+        first_name: req.user.first_name,
+        email: req.user.email,
+        age: req.user.age
+        
     };
 
     req.session.login = true;
