@@ -43,7 +43,7 @@ router.post("/login", passport.authenticate("login", {failureRedirect: "/api/ses
 
     req.session.login = true;
 
-    res.redirect("/profile");
+    res.redirect("/bienvenido");
 
 })
 

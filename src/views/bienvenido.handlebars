@@ -1,0 +1,37 @@
+
+
+
+
+<h1>Mi Perfil</h1>
+<h2>bienvenido</h2>
+<p>Bienvenido!, {{user.first_name}}!</p>
+<p>Email: {{user.email}}</p>
+<p>Edad: {{user.age}}</p>
+
+<h1>listado de productos</h1>
+
+<ul>
+    {{#each productos}}
+
+      <li> {{this.title}}</li>
+      <li>{{this.description}}</li>
+      <li>{{this.category}}</li>
+
+    {{/each}}
+</ul>
+
+{{#if hasNextPage}}
+  <a href="/bienvenido?page={{nextPage}}">Siguiente</a>
+{{/if}}
+
+{{#if hasPrevPage}}
+  <a href="/bienvenido?page={{prevPage}} ">Anterior</a>
+{{/if}}
+
+<p>pagina {{currentPage}} de {{totalPages}}</p>
+
+
+
+
+
+<a href="/api/session/logout">Logout</a>
